@@ -325,10 +325,10 @@
 // новый префикс ns (см. предупреждение ниже), свой agent, свои режимы и кнопки.
 // записи пульта — слово в слово из teksty.json робота, голос и настройки мозга; сверены распознаванием
 const _K = {
-  hallo_de: { label: "🇩🇪 Приветствие + выбор темы", data: 'clips/de/hallo.mp3', text: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One und BrightFlare. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?" },
-  hallo_en: { label: "🇬🇧 Приветствие + выбор темы", data: 'clips/en/hallo.mp3', text: "Good day! I'm the All for One Bot, the digital Cybersecurity Ambassador of All for One and BrightFlare. Are you more interested in OT security, AI security, or SAP and IT security?" },
-  willkommen_de: { label: "🇩🇪 «Willkommen am Stand»", data: 'clips/de/willkommen.mp3', text: "Willkommen am Stand von All for One und BrightFlare!" },
-  willkommen_en: { label: "🇬🇧 «Willkommen am Stand»", data: 'clips/en/willkommen.mp3', text: "Welcome to the All for One and BrightFlare stand!" },
+  hallo_de: { label: "🇩🇪 Приветствие + выбор темы", data: 'clips/de/hallo.mp3', text: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?" },
+  hallo_en: { label: "🇬🇧 Приветствие + выбор темы", data: 'clips/en/hallo.mp3', text: "Good day! I'm the All for One Bot, the digital Cybersecurity Ambassador of All for One. Are you more interested in OT security, AI security, or SAP and IT security?" },
+  willkommen_de: { label: "🇩🇪 «Willkommen am Stand»", data: 'clips/de/willkommen.mp3', text: "Willkommen am Stand von All for One!" },
+  willkommen_en: { label: "🇬🇧 «Willkommen am Stand»", data: 'clips/en/willkommen.mp3', text: "Welcome to the All for One stand!" },
   thema4_de: { label: "🇩🇪 Выбор темы (4 темы, Showcase)", data: 'clips/de/thema4.mp3', text: "Was beschäftigt Sie gerade stärker: AI, Cybersecurity, OT Security oder Managed Security Services?" },
   thema4_en: { label: "🇬🇧 Выбор темы (4 темы, Showcase)", data: 'clips/en/thema4.mp3', text: "What concerns you more at the moment: AI, cybersecurity, OT security or managed security services?" },
   fallback_de: { label: "🇩🇪 Нет реакции → открытый вопрос", data: 'clips/de/fallback.mp3', text: "Und was beschäftigt Sie in Sachen IT-Sicherheit gerade am meisten?" },
@@ -395,15 +395,15 @@ const ROBOT = {
   ns: 'afo:',                                     // префикс памяти браузера — СВОЙ у каждого пульта (домен GitHub Pages общий)
   agent: 'agent_5001m5n6g4acfs2bv6y18e09vd9x',  // мозг робота (deploy_robot.py --robot allforone)
   title: 'All for One Bot · it-sa',
-  version: '24.10.2026 All for One Bot · 2',
-  dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One und BrightFlare. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
+  version: '24.10.2026 All for One Bot · 3',
+  dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
   tishinaPosleZapisi: false,   // стенд: после записи робот слушает ответ гостя (у 1B после записи сцены — ✋)
 
   clips: Object.values(_K),
   cards: [
     { id: "start", nav: "▶", num: "▶", q: "Начало — подошёл человек", qru: "приветствие с выбором темы; нет реакции → открытый вопрос", items: [
       { name: "Приветствие + выбор темы", dur: 14, first: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador …", de: _K.hallo_de, en: _K.hallo_en },
-      { name: "«Willkommen am Stand»", dur: 4, first: "Willkommen am Stand von All for One und BrightFlare!", de: _K.willkommen_de, en: _K.willkommen_en },
+      { name: "«Willkommen am Stand»", dur: 3, first: "Willkommen am Stand von All for One!", de: _K.willkommen_de, en: _K.willkommen_en },
       { name: "Выбор темы (4 темы, Showcase)", dur: 9, first: "Was beschäftigt Sie gerade stärker: AI, Cybersecurity, OT Security oder …", de: _K.thema4_de, en: _K.thema4_en },
       { name: "Нет реакции → открытый вопрос", dur: 4, first: "Und was beschäftigt Sie in Sachen IT-Sicherheit gerade am meisten?", de: _K.fallback_de, en: _K.fallback_en } ] },
     { id: "ot", nav: "OT", num: "OT", q: "OT-Security → Bernd Koberwein", qru: "машины, заводы, производство, CRA", items: [
@@ -468,7 +468,7 @@ const ROBOT = {
   answerCue: '⟦REGIE⟧ ОТВЕЧАЙ. Antworte JETZT auf die letzten Worte des Gastes seit deiner letzten Antwort. '
            + 'Hat der Gast seit deiner letzten Antwort nichts Verständliches gesagt: erfinde nichts, begrüße nicht neu, fang kein neues Thema an — '
            + 'sag in EINEM kurzen Satz, dass du ihn bei dem Trubel nicht verstanden hast, und bitte ihn, es noch einmal zu sagen, in der Sprache des Gesprächs.',
-  hello:  'Sprich als Erster, genau diesen Text und sonst nichts: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One und BrightFlare. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?"',
+  hello:  'Sprich als Erster, genau diesen Text und sonst nichts: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?"',
   louder: 'Sag in einem kurzen Satz, dass du die Person bei dem Trubel nicht verstanden hast, und bitte sie, es noch einmal zu sagen — in der Sprache des Gesprächs, sonst nichts.',
   bye:    'Verabschiede dich mit einem Satz: Dank für das Gespräch und einen erfolgreichen Tag auf der it-sa — in der Sprache des Gesprächs, sonst nichts.',
   ctxCue: 'Anweisung deines Teams (oft auf Russisch) — setz sie JETZT um, deine ersten Worte sind schon die Szene, in der Sprache des Gesprächs, ohne Bestätigung:',
@@ -701,7 +701,7 @@ function releaseBoard(msg){
   if(msg) log(msg);
 }
 // 1B (аудит 19.10): записи сцены — в память телефона сразу при открытии пульта. Сцене не нужен мозг — пусть не нужна и сеть.
-const KLIP_V='2410a';   // переозвучил запись — поменяй метку (урок эфира 21.08)
+const KLIP_V='2410b';   // переозвучил запись — поменяй метку (урок эфира 21.08)
 function klipyVPamyat(){
   const vse=(ROBOT.clips||[]).filter(c=>c.data); let gotovo=0, oshibok=0;
   const pokaz=()=>{ const l=$('board')?.previousElementSibling;
