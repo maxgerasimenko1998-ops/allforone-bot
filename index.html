@@ -233,7 +233,8 @@
       <div class="quick">
         <button id="qaHello">🗣 Заговорить первым</button>
         <button id="qaAnswer" class="hidden" style="display:none">⏭ ОТВЕЧАЙ</button><!-- 14.09: дубль спрятан, большая ОТВЕЧАЙ вверху -->
-        <button id="qaBye">👋 Завершить</button>
+        <button id="qaLouder">🔁 Не расслышал — повтори</button>
+        <button id="qaBye">👋 Завершить диалог</button>
       </div>
     </div>
 
@@ -325,34 +326,6 @@
 // новый префикс ns (см. предупреждение ниже), свой agent, свои режимы и кнопки.
 // записи пульта — слово в слово из teksty.json робота, голос и настройки мозга; сверены распознаванием
 const _K = {
-  willkommen_de: { label: "🇩🇪 «Willkommen am Stand»", data: 'clips/de/willkommen.mp3', text: "Willkommen am Stand von All for One!" },
-  willkommen_en: { label: "🇬🇧 «Willkommen am Stand»", data: 'clips/en/willkommen.mp3', text: "Welcome to the All for One stand!" },
-  fallback_de: { label: "🇩🇪 Нет реакции → открытый вопрос", data: 'clips/de/fallback.mp3', text: "Und was beschäftigt Sie in Sachen IT-Sicherheit gerade am meisten?" },
-  fallback_en: { label: "🇬🇧 Нет реакции → открытый вопрос", data: 'clips/en/fallback.mp3', text: "And what concerns you most about IT security right now?" },
-  ot2_de: { label: "🇩🇪 Вопрос-вход · строите станки? закон CRA", data: 'clips/de/ot2.mp3', text: "Bauen Sie Maschinen oder Anlagen? Dann betrifft Sie der Cyber Resilience Act direkter, als Sie denken." },
-  otu_de: { label: "🇩🇪 ПЕРЕДАЧА → Bernd Koberwein", data: 'clips/de/otu.mp3', text: "Das klärt am besten unser OT-Experte Bernd Koberwein direkt mit Ihnen – er ist hier am Stand." },
-  otu_en: { label: "🇬🇧 ПЕРЕДАЧА → Bernd Koberwein", data: 'clips/en/otu.mp3', text: "The best person to clarify that with you directly is our OT expert Bernd Koberwein – he's right here at the stand." },
-  ai3_de: { label: "🇩🇪 Вопрос-вход · какие KI-инструменты у вас реально", data: 'clips/de/ai3.mp3', text: "Wissen Sie, welche KI-Tools Ihre Mitarbeitenden heute tatsächlich nutzen – freigegeben oder nicht?" },
-  aiu_de: { label: "🇩🇪 ПЕРЕДАЧА → Andreas Joham (после демо)", data: 'clips/de/aiu.mp3', text: "Unser AI-Experte Andreas Joham zeigt Ihnen das gern direkt – er ist hier am Stand." },
-  aiu_en: { label: "🇬🇧 ПЕРЕДАЧА → Andreas Joham (после демо)", data: 'clips/en/aiu.mp3', text: "Our AI expert Andreas Joham will be happy to show you directly – he's right here at the stand." },
-  sap0_de: { label: "🇩🇪 Вопрос-вход · заметите ли атаку на SAP", data: 'clips/de/sap0.mp3', text: "Eine kurze Frage: Wenn jemand heute Ihr SAP-System angreifen würde, würden Sie es überhaupt bemerken?" },
-  sapu_de: { label: "🇩🇪 ПЕРЕДАЧА → Matthias Lipp", data: 'clips/de/sapu.mp3', text: "Das klärt am besten unser SAP-Security-Experte Matthias Lipp direkt mit Ihnen. Ich stelle gern den Kontakt hier am Stand her." },
-  sapu_en: { label: "🇬🇧 ПЕРЕДАЧА → Matthias Lipp", data: 'clips/en/sapu.mp3', text: "The best person to clarify that with you directly is our SAP security expert Matthias Lipp. I'll gladly put you in touch here at the stand." },
-  mss0_de: { label: "🇩🇪 Вопрос-вход · кто следит ночью и в выходные", data: 'clips/de/mss0.mp3', text: "Wer kümmert sich bei Ihnen eigentlich um Cyberangriffe, wenn nachts oder am Wochenende etwas passiert?" },
-  mssu_de: { label: "🇩🇪 ПЕРЕДАЧА → Edgar Nickel и Nick Faller", data: 'clips/de/mssu.mp3', text: "Das sollten Sie direkt mit unseren Managed-Security-Experten Edgar Nickel und Nick Faller besprechen. Ich stelle gern den Kontakt hier am Stand her." },
-  mssu_en: { label: "🇬🇧 ПЕРЕДАЧА → Edgar Nickel и Nick Faller", data: 'clips/en/mssu.mp3', text: "You should discuss that directly with our managed security experts Edgar Nickel and Nick Faller. I'll gladly put you in touch here at the stand." },
-  itu_de: { label: "🇩🇪 ПЕРЕДАЧА IT-Security → Joham или Koberwein", data: 'clips/de/itu.mp3', text: "Das besprechen Sie am besten mit unseren Experten Andreas Joham oder Bernd Koberwein – sie sind direkt hier am Stand." },
-  itu_en: { label: "🇬🇧 ПЕРЕДАЧА IT-Security → Joham или Koberwein", data: 'clips/en/itu.mp3', text: "You'd best discuss that with our experts Andreas Joham or Bernd Koberwein – they're right here at the stand." },
-  kollegen_de: { label: "🇩🇪 Не знает ответа → коллеги", data: 'clips/de/kollegen.mp3', text: "Das beantworten Ihnen meine Kollegen am Stand gern." },
-  kollegen_en: { label: "🇬🇧 Не знает ответа → коллеги", data: 'clips/en/kollegen.mp3', text: "My colleagues at the stand will be happy to answer that." },
-  foto_de: { label: "🇩🇪 Фото", data: 'clips/de/foto.mp3', text: "Sehr gern ein gemeinsames Foto – stellen Sie sich einfach zu mir." },
-  foto_en: { label: "🇬🇧 Фото", data: 'clips/en/foto.mp3', text: "I'd love a photo together – just come and stand next to me." },
-  akku_de: { label: "🇩🇪 Пауза · аккумулятор", data: 'clips/de/akku.mp3', text: "Ich mache jetzt eine kurze Akku-Pause. In ein paar Minuten bin ich wieder für Sie da." },
-  akku_en: { label: "🇬🇧 Пауза · аккумулятор", data: 'clips/en/akku.mp3', text: "I'm taking a short battery break now. I'll be back for you in a few minutes." },
-  tschuess_de: { label: "🇩🇪 Прощание", data: 'clips/de/tschuess.mp3', text: "Vielen Dank für das Gespräch und einen erfolgreichen Tag hier auf der it-sa!" },
-  tschuess_en: { label: "🇬🇧 Прощание", data: 'clips/en/tschuess.mp3', text: "Thank you for the conversation, and have a successful day here at it-sa!" },
-  nv_de: { label: "🇩🇪 Не расслышал", data: 'clips/de/nv.mp3', sluzh: true, text: "Entschuldigung, bei dem Trubel habe ich Sie nicht verstanden – können Sie das noch einmal sagen?" },
-  nv_en: { label: "🇬🇧 Не расслышал", data: 'clips/en/nv.mp3', sluzh: true, text: "Sorry, with all the noise I didn't catch that – could you say it again?" },
   p1_de: { label: "🇩🇪 Приветствие 1", data: 'clips/de/p1.mp3', text: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?" },
   p2_de: { label: "🇩🇪 Приветствие 2", data: 'clips/de/p2.mp3', text: "Hallo und herzlich willkommen bei All for One! Ich bin der All for One Bot. Was beschäftigt Sie gerade stärker: AI, Cybersecurity, OT Security oder Managed Security Services?" },
   p3_de: { label: "🇩🇪 Приветствие 3", data: 'clips/de/p3.mp3', text: "Schön, dass Sie da sind! Ich bin der All for One Bot und suche heute mit Ihnen die blinden Flecken in Ihrer IT. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?" },
@@ -362,7 +335,7 @@ const ROBOT = {
   ns: 'afo:',                                     // префикс памяти браузера — СВОЙ у каждого пульта (домен GitHub Pages общий)
   agent: 'agent_5001m5n6g4acfs2bv6y18e09vd9x',  // мозг робота (deploy_robot.py --robot allforone)
   title: 'All for One Bot · it-sa',
-  version: '24.10.2026 All for One Bot · 5',
+  version: '24.10.2026 All for One Bot · 6',
   dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
   tishinaPosleZapisi: false,   // стенд: после записи робот слушает ответ гостя (у 1B после записи сцены — ✋)
   // 24.10 (Макс): «Заговорить первым» = записанное приветствие, каждый раз СЛЕДУЮЩЕЕ из этих четырёх — люди вокруг
@@ -371,29 +344,7 @@ const ROBOT = {
 
   clips: Object.values(_K),
   cards: [
-    { id: "start", nav: "▶", num: "▶", q: "Начало", qru: "позвать проходящих; молчит → открытый вопрос", items: [
-      { name: "«Willkommen am Stand»", dur: 3, first: "Willkommen am Stand von All for One!", de: _K.willkommen_de, en: _K.willkommen_en },
-      { name: "Нет реакции → открытый вопрос", dur: 4, first: "Und was beschäftigt Sie in Sachen IT-Sicherheit gerade am meisten?", de: _K.fallback_de, en: _K.fallback_en } ] },
-    { id: "ot", nav: "OT", num: "OT", q: "OT-Security → Bernd Koberwein", qru: "машины, заводы, производство, CRA", items: [
-      { name: "Вопрос-вход · строите станки? закон CRA", dur: 6, first: "Bauen Sie Maschinen oder Anlagen? Dann betrifft Sie der Cyber Resilience Act …", de: _K.ot2_de },
-      { name: "ПЕРЕДАЧА → Bernd Koberwein", dur: 6, first: "Das klärt am besten unser OT-Experte Bernd Koberwein direkt mit Ihnen – er …", de: _K.otu_de, en: _K.otu_en, uebergabe: true } ] },
-    { id: "ai", nav: "AI", num: "AI", q: "AI-Security → Andreas Joham", qru: "ChatGPT, KI-инструменты, промпты, агенты", items: [
-      { name: "Вопрос-вход · какие KI-инструменты у вас реально", dur: 7, first: "Wissen Sie, welche KI-Tools Ihre Mitarbeitenden heute tatsächlich nutzen – …", de: _K.ai3_de },
-      { name: "ПЕРЕДАЧА → Andreas Joham (после демо)", dur: 5, first: "Unser AI-Experte Andreas Joham zeigt Ihnen das gern direkt – er ist hier am …", de: _K.aiu_de, en: _K.aiu_en, uebergabe: true } ] },
-    { id: "sap", nav: "SAP", num: "SAP", q: "SAP Security → Matthias Lipp", qru: "SAP, права доступа, BTP, мониторинг SAP", items: [
-      { name: "Вопрос-вход · заметите ли атаку на SAP", dur: 6, first: "Eine kurze Frage: Wenn jemand heute Ihr SAP-System angreifen würde, würden …", de: _K.sap0_de },
-      { name: "ПЕРЕДАЧА → Matthias Lipp", dur: 8, first: "Das klärt am besten unser SAP-Security-Experte Matthias Lipp direkt mit …", de: _K.sapu_de, en: _K.sapu_en, uebergabe: true } ] },
-    { id: "mss", nav: "SOC", num: "SOC", q: "Managed Security / SOC → Edgar Nickel, Nick Faller", qru: "ночью и в выходные, алерты, 24/7, атака", items: [
-      { name: "Вопрос-вход · кто следит ночью и в выходные", dur: 6, first: "Wer kümmert sich bei Ihnen eigentlich um Cyberangriffe, wenn nachts oder am …", de: _K.mss0_de },
-      { name: "ПЕРЕДАЧА → Edgar Nickel и Nick Faller", dur: 9, first: "Das sollten Sie direkt mit unseren Managed-Security-Experten Edgar Nickel und …", de: _K.mssu_de, en: _K.mssu_en, uebergabe: true } ] },
-    { id: "it", nav: "IT", num: "IT", q: "IT-Security (сеть, M365, рабочие места)", qru: "своих вопросов у клиента нет — только передача", items: [
-      { name: "ПЕРЕДАЧА IT-Security → Joham или Koberwein", dur: 8, first: "Das besprechen Sie am besten mit unseren Experten Andreas Joham oder Bernd …", de: _K.itu_de, en: _K.itu_en, uebergabe: true } ] },
-    { id: "zapas", nav: "+", num: "+", q: "Служебные", qru: "коллеги, фото, пауза, прощание, не расслышал", items: [
-      { name: "Не знает ответа → коллеги", dur: 3, first: "Das beantworten Ihnen meine Kollegen am Stand gern.", de: _K.kollegen_de, en: _K.kollegen_en },
-      { name: "Фото", dur: 4, first: "Sehr gern ein gemeinsames Foto – stellen Sie sich einfach zu mir.", de: _K.foto_de, en: _K.foto_en },
-      { name: "Пауза · аккумулятор", dur: 5, first: "Ich mache jetzt eine kurze Akku-Pause. In ein paar Minuten bin ich wieder für …", de: _K.akku_de, en: _K.akku_en },
-      { name: "Прощание", dur: 5, first: "Vielen Dank für das Gespräch und einen erfolgreichen Tag hier auf der it-sa!", de: _K.tschuess_de, en: _K.tschuess_en },
-      { name: "Не расслышал", dur: 5, first: "Entschuldigung, bei dem Trubel habe ich Sie nicht verstanden – können Sie das …", de: _K.nv_de, en: _K.nv_en } ] },
+
   ],
 
   // Копия пульта 1b-robot (= huk-roboter = ninjaone-bot = vives-bot, решение Макса: пульт — копия лучшего готового).
@@ -407,7 +358,7 @@ const ROBOT = {
            + 'sag in EINEM kurzen Satz, dass du ihn bei dem Trubel nicht verstanden hast, und bitte ihn, es noch einmal zu sagen, in der Sprache des Gesprächs.',
   hello:  'Sprich als Erster, genau diesen Text und sonst nichts: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?"',
   louder: 'Sag in einem kurzen Satz, dass du die Person bei dem Trubel nicht verstanden hast, und bitte sie, es noch einmal zu sagen — in der Sprache des Gesprächs, sonst nichts.',
-  bye:    'Verabschiede dich mit einem Satz: Dank für das Gespräch und einen erfolgreichen Tag auf der it-sa — in der Sprache des Gesprächs, sonst nichts.',
+  bye:    'Verabschiede dich mit einem Satz: Dank für das Gespräch und einen erfolgreichen Tag auf der it-sa — in der Sprache des Gesprächs, sonst nichts. Danach ist das Gespräch beendet: wer als Nächstes spricht, ist eine neue Person — nichts aus diesem Gespräch (Name, Firma, Thema) wiederverwenden.',
   ctxCue: 'Anweisung deines Teams (oft auf Russisch) — setz sie JETZT um, deine ersten Worte sind schon die Szene, in der Sprache des Gesprächs, ohne Bestätigung:',
 };
 document.title = 'Пульт ' + ROBOT.title;
@@ -624,6 +575,8 @@ function renderKarty(b){
 }
 // записи — сразу под главными кнопками, а не в конце страницы
 (()=>{ try{ const bc=$('board')?.closest('.card'), after=$('hushBtn2'); if(bc&&after) after.after(bc); }catch{} })();
+// 24.10 (Макс): записей на экране нет — карточку записей не показываем (приветствия живут в «Заговорить первым»)
+(()=>{ try{ if(!(ROBOT.cards||[]).length){ const bc=$('board')?.closest('.card'); if(bc) bc.style.display='none'; } }catch{} })();
 // ✋ ХВАТИТ и ⏭ ОТВЕЧАЙ всегда внизу экрана — нажимают те же кнопки пульта
 (()=>{ const bar=document.createElement('div'); bar.id='kbar'; bar.innerHTML='<button id="kbOt"></button><button id="kbHv"></button>'; document.body.appendChild(bar);
   const hv=$('kbHv'), ot=$('kbOt'); hv.onclick=e=>{ e.preventDefault(); $('stopTalk')?.click(); }; ot.onclick=e=>{ e.preventDefault(); $('answerNow')?.click(); };
@@ -1653,6 +1606,7 @@ const INSTANT={
   // Кнопка «заговорить первым»: раз оператор её нажал — перед роботом ТОЧНО
   // стоит человек.
   ...((ROBOT.privetstviya||[]).length ? {} : { qaHello: ROBOT.hello }),   // 24.10: если есть записи-приветствия — кнопка играет их (ниже)
+  qaLouder: ROBOT.louder,   // 24.10 Макс: три кнопки — заговорить первым, не расслышал, завершить диалог
   qaBye: ROBOT.bye,
 };
 let instantBusy=false;
