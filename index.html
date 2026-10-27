@@ -326,7 +326,7 @@
 // новый префикс ns (см. предупреждение ниже), свой agent, свои режимы и кнопки.
 // записи пульта — слово в слово из teksty.json робота, голос и настройки мозга; сверены распознаванием
 const _K = {
-  p1_de: { label: "🇩🇪 Приветствие 1", data: 'clips/de/p1.mp3', text: "Guten Tag! Ich bin der All for One Bot. Was beschäftigt Sie gerade mehr: OT-Security, AI-Security oder SAP- und IT-Security?" },
+  p1_de: { label: "🇩🇪 Приветствие 1", data: 'clips/de/p1.mp3', text: "Guten Tag! Ich bin der All for One Bot. Was beschäftigt Sie gerade mehr: OT-Security, AI-Security, Microsoft 365 und Copilot oder SAP-Security?" },
   p2_de: { label: "🇩🇪 Приветствие 2", data: 'clips/de/p2.mp3', text: "Hallo! Ich bin der All for One Bot und suche heute die blinden Flecken in Ihrer IT. Wo drückt bei Ihnen gerade der Schuh?" },
   p3_de: { label: "🇩🇪 Приветствие 3", data: 'clips/de/p3.mp3', text: "Willkommen bei All for One! Ich bin der All for One Bot. Darf ich fragen, was Sie beruflich machen?" },
   p4_de: { label: "🇩🇪 Приветствие 4", data: 'clips/de/p4.mp3', text: "Schön, dass Sie stehen bleiben! Ich bin der All for One Bot. Mal ehrlich: Wird bei Ihnen im Job schon fleißig ChatGPT genutzt?" },
@@ -337,13 +337,13 @@ const _K = {
   p9_de: { label: "🇩🇪 Приветствие 9", data: 'clips/de/p9.mp3', text: "Hallo! Ich bin der All for One Bot, ein Roboter, der Sicherheitslücken gar nicht mag. Was führt Sie heute auf die it-sa?" },
   p10_de: { label: "🇩🇪 Приветствие 10", data: 'clips/de/p10.mp3', text: "Willkommen am Stand von All for One! Ich bin der All for One Bot. Sind Sie eher von der IT-Seite oder aus dem Management?" },
   p11_de: { label: "🇩🇪 Приветствие 11", data: 'clips/de/p11.mp3', text: "Guten Tag! Ich bin der All for One Bot. Wenn Sie heute einen blinden Fleck in Ihrer IT finden dürften: Wo würden Sie zuerst suchen?" },
-  p12_de: { label: "🇩🇪 Приветствие 12", data: 'clips/de/p12.mp3', text: "Hallo! Ich bin der All for One Bot. Was ist bei Ihnen gerade das größere Thema: KI, Produktion oder SAP?" },
+  p12_de: { label: "🇩🇪 Приветствие 12", data: 'clips/de/p12.mp3', text: "Hallo! Ich bin der All for One Bot. Was ist bei Ihnen gerade das größere Thema: KI und Copilot, Produktion oder SAP?" },
 };
 const ROBOT = {
   ns: 'afo:',                                     // префикс памяти браузера — СВОЙ у каждого пульта (домен GitHub Pages общий)
   agent: 'agent_5001m5n6g4acfs2bv6y18e09vd9x',  // мозг робота (deploy_robot.py --robot allforone)
   title: 'All for One Bot · it-sa',
-  version: '27.10.2026 All for One Bot · 10',
+  version: '27.10.2026 All for One Bot · 11',
   dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
   tishinaPosleZapisi: false,   // стенд: после записи робот слушает ответ гостя (у 1B после записи сцены — ✋)
   // 24.10 (Макс): «Заговорить первым» = записанное приветствие, каждый раз СЛЕДУЮЩЕЕ по кругу (AfO — 12 с 27.10) — люди вокруг
@@ -599,7 +599,7 @@ function releaseBoard(msg){
   if(msg) log(msg);
 }
 // 1B (аудит 19.10): записи сцены — в память телефона сразу при открытии пульта. Сцене не нужен мозг — пусть не нужна и сеть.
-const KLIP_V='2710a';   // переозвучил запись — поменяй метку (урок эфира 21.08)
+const KLIP_V='2710b';   // переозвучил запись — поменяй метку (урок эфира 21.08)
 function klipyVPamyat(){
   const vse=(ROBOT.clips||[]).filter(c=>c.data); let gotovo=0, oshibok=0;
   const pokaz=()=>{ const l=$('board')?.previousElementSibling;
