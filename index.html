@@ -343,7 +343,7 @@ const ROBOT = {
   ns: 'afo:',                                     // префикс памяти браузера — СВОЙ у каждого пульта (домен GitHub Pages общий)
   agent: 'agent_5001m5n6g4acfs2bv6y18e09vd9x',  // мозг робота (deploy_robot.py --robot allforone)
   title: 'All for One Bot · it-sa',
-  version: '27.10.2026 All for One Bot · 11',
+  version: '27.10.2026 All for One Bot · 12',
   dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
   tishinaPosleZapisi: false,   // стенд: после записи робот слушает ответ гостя (у 1B после записи сцены — ✋)
   // 24.10 (Макс): «Заговорить первым» = записанное приветствие, каждый раз СЛЕДУЮЩЕЕ по кругу (AfO — 12 с 27.10) — люди вокруг
@@ -599,7 +599,7 @@ function releaseBoard(msg){
   if(msg) log(msg);
 }
 // 1B (аудит 19.10): записи сцены — в память телефона сразу при открытии пульта. Сцене не нужен мозг — пусть не нужна и сеть.
-const KLIP_V='2710b';   // переозвучил запись — поменяй метку (урок эфира 21.08)
+const KLIP_V='2710c';   // переозвучил запись — поменяй метку (урок эфира 21.08)
 function klipyVPamyat(){
   const vse=(ROBOT.clips||[]).filter(c=>c.data); let gotovo=0, oshibok=0;
   const pokaz=()=>{ const l=$('board')?.previousElementSibling;
