@@ -335,7 +335,7 @@ const ROBOT = {
   ns: 'afo:',                                     // префикс памяти браузера — СВОЙ у каждого пульта (домен GitHub Pages общий)
   agent: 'agent_5001m5n6g4acfs2bv6y18e09vd9x',  // мозг робота (deploy_robot.py --robot allforone)
   title: 'All for One Bot · it-sa',
-  version: '27.10.2026 All for One Bot · 7',
+  version: '27.10.2026 All for One Bot · 8',
   dayCtx: "it-sa 2026 in Nürnberg, Stand von All for One. Du bist der All for One Bot. Alle Experten aus deinem Brief sind heute am Stand.",
   tishinaPosleZapisi: false,   // стенд: после записи робот слушает ответ гостя (у 1B после записи сцены — ✋)
   // 24.10 (Макс): «Заговорить первым» = записанное приветствие, каждый раз СЛЕДУЮЩЕЕ из этих четырёх — люди вокруг
@@ -357,7 +357,7 @@ const ROBOT = {
            + 'Hat der Gast seit deiner letzten Antwort noch nichts Verständliches gesagt: '
            + 'sag NICHTS: ruf skip_turn auf und warte — sobald er spricht, antwortest du ihm. Kein Satz über Nichtverstehen, keine neue Begrüßung.',
   hello:  'Sprich als Erster, genau diesen Text und sonst nichts: "Guten Tag! Ich bin der All for One Bot, der digitale Cybersecurity Ambassador von All for One. Interessiert Sie eher OT-Security, AI-Security oder SAP-/IT-Security?"',
-  louder: 'Sag in einem kurzen Satz, dass du die Person bei dem Trubel nicht verstanden hast, und bitte sie, es noch einmal zu sagen — in der Sprache des Gesprächs, sonst nichts.',
+  louder: 'Du hast die Person nicht verstanden. Reagiere nach deiner Stufenregel fürs Nichtverstehen: erstes Mal — kurze Entschuldigung in NEUEN Worten und gleich eine neue Frage; zweites Mal in Folge — eine andere einfache Frage, ohne Entschuldigung; drittes Mal in Folge — es ist zu laut, die Kollegen direkt neben dir helfen gern. Nie derselbe Satz wie zuvor, in der Sprache des Gesprächs.',
   bye:    'Verabschiede dich mit einem Satz: Dank für das Gespräch und einen erfolgreichen Tag auf der it-sa — in der Sprache des Gesprächs, sonst nichts. Danach ist das Gespräch beendet: wer als Nächstes spricht, ist eine neue Person — nichts aus diesem Gespräch (Name, Firma, Thema) wiederverwenden.',
   ctxCue: 'Anweisung deines Teams (oft auf Russisch) — setz sie JETZT um, deine ersten Worte sind schon die Szene, in der Sprache des Gesprächs, ohne Bestätigung:',
 };
